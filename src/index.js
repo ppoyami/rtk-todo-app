@@ -9,7 +9,6 @@ import logger from '@/middleware/logger';
 import App from '@/App';
 
 import '@/styles/global.css';
-// import configureStore from '@/store/configureStore';
 
 const store = configureStore({
   reducer: rootReducer,
