@@ -4,7 +4,7 @@ import TodoList from '@/components/layouts/TodoList';
 import Todo from '@/components/Todo';
 import Button from '@/components/elements/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterTypes, filterChange } from '@/reducers/filters';
+import { filterTypes, filterChange } from '@/features/filtersSlice';
 
 export default function Board() {
   const history = useHistory();
@@ -33,7 +33,7 @@ export default function Board() {
       <div className="space-x-2 mb-1">
         {Object.keys(filterTypes).map(key => (
           <span
-            onClick={() => dispatch(filterChange(filterTypes[key]))}
+            onClick={() => dispatch(filterChange({ key: filterTypes[key] }))}
             key={key}
             className={`text-sm text-gray-400`}
           >

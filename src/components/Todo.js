@@ -1,12 +1,12 @@
 import { ReactComponent as Check } from '@/assets/check.svg';
 import { useDispatch } from 'react-redux';
 
-import { toggleTodo } from '@/reducers/todos';
+import { toggleTodo } from '@/features/todosSlice';
 
 export default function Todo({ todo }) {
   const dispatch = useDispatch();
   const onChange = () => {
-    dispatch(toggleTodo(todo.id));
+    dispatch(toggleTodo({ id: todo.id }));
   };
   return (
     <li className="w-full p-2 mb-2 list-none hover:shadow-md">

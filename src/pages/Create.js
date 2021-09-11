@@ -3,7 +3,7 @@ import Input from '@/components/elements/Input';
 import FormLayout from '@/components/layouts/FormLayout';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTodo } from '@/reducers/todos';
+import { addTodo } from '@/features/todosSlice';
 import { useHistory } from 'react-router';
 
 export default function Create() {
