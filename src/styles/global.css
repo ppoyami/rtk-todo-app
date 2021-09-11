@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Glory:wght@200;400;600&family=Noto+Serif+KR:wght@200;400;600&display=swap');
+/* M: @layer 사용하기 */
+@layer base {
+  body {
+    @apply h-screen flex justify-center items-center font-body;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-green-400 hover:bg-green-500 shadow-md text-sm text-white py-2 px-4 rounded-lg;
+  }
+  .input-border {
+    @apply px-2 py-1 outline-none w-full bg-gray-100 rounded-md;
+  }
+}
+
+/* Q: 인접 선택자와 같은 방식은 tailwind 에서 어떻게 작성할까? 그리고 파일의 분리는 어떻게? */
+input:checked + div {
+  @apply border-blue-500;
+}
+input:checked + div svg {
+  @apply block;
+}
