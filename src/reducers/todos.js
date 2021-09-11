@@ -12,7 +12,7 @@ const initialState = [
 const ADD_TODO = 'todos/add';
 const TOGGLE_TODO = 'todos/toggle';
 
-export default function reduce(state = initialState, action) {
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO:
       return [action.payload, ...state];

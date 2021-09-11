@@ -3,17 +3,47 @@ import { useHistory } from 'react-router-dom';
 import TodoList from '@/components/layouts/TodoList';
 import Todo from '@/components/Todo';
 import Button from '@/components/elements/Button';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterTypes, filterChange } from '@/reducers/filters';
 
 export default function Board() {
   const history = useHistory();
   const goCreate = () => history.push('/create');
+  const dispatch = useDispatch();
 
   const todos = useSelector(state => state.todos);
+  const filters = useSelector(state => state.filters);
+  const currentFilter = Object.keys(filters).find(key => filters[key]);
+
+  console.log(currentFilter);
+
+  const filterTodos = () => {
+    switch (currentFilter) {
+      case filterTypes.ALL:
+        return todos;
+      case filterTypes.ACTIVE:
+        return todos.filter(todo => !todo.done);
+      case filterTypes.COMPLATE:
+        return todos.filter(todo => todo.done);
+      default:
+        return todos;
+    }
+  };
   return (
     <>
+      <div className="space-x-2 mb-1">
+        {Object.keys(filterTypes).map(key => (
+          <span
+            onClick={() => dispatch(filterChange(filterTypes[key]))}
+            key={key}
+            className={`text-sm text-gray-400`}
+          >
+            {key}
+          </span>
+        ))}
+      </div>
       <TodoList>
-        {todos.map(todo => (
+        {filterTodos(todos).map(todo => (
           <Todo key={todo.id} todo={todo} />
         ))}
       </TodoList>
