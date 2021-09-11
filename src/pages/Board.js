@@ -35,7 +35,11 @@ export default function Board() {
           <span
             onClick={() => dispatch(filterChange({ key: filterTypes[key] }))}
             key={key}
-            className={`text-sm text-gray-400`}
+            className={`text-sm  ${
+              currentFilter === filterTypes[key]
+                ? 'text-black font-bold'
+                : 'text-gray-400'
+            }`}
           >
             {key}
           </span>
