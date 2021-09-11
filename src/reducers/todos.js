@@ -5,7 +5,7 @@ const initialState = [
     id: 0,
     title: 'text',
     desc: 'this is test...',
-    done: false,
+    done: true,
   },
 ];
 
@@ -25,7 +25,7 @@ export default function reduce(state = initialState, action) {
   }
 }
 
-export const addTodo = (title, desc) => ({
+export const addTodo = ({ title, desc }) => ({
   type: ADD_TODO,
   payload: { id: shortid.generate(), title, desc, done: false },
 });
