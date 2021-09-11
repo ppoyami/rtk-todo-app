@@ -15,8 +15,6 @@ export default function Board() {
   const filters = useSelector(state => state.filters);
   const currentFilter = Object.keys(filters).find(key => filters[key]);
 
-  console.log(currentFilter);
-
   const filterTodos = () => {
     switch (currentFilter) {
       case filterTypes.ALL:
@@ -29,6 +27,7 @@ export default function Board() {
         return todos;
     }
   };
+
   return (
     <>
       <div className="space-x-2 mb-1">
