@@ -10,6 +10,8 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "craco-alias": "^3.0.1",
+    "eslint-config-airbnb": "^18.2.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.5",
@@ -26,12 +28,6 @@
     "test": "craco test",
     "eject": "craco eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -46,7 +42,12 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.8.6",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prettier": "^4.0.0",
     "postcss": "^7.0.36",
+    "prettier": "2.4.1",
     "redux-devtools-extension": "^2.13.9",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.14"
   }

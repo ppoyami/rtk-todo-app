@@ -1,9 +1,9 @@
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import TodoList from '@/components/layouts/TodoList';
 import Todo from '@/components/Todo';
 import Button from '@/components/elements/Button';
-import { useDispatch, useSelector } from 'react-redux';
 import { filterTypes, filterChange } from '@/features/filtersSlice';
 
 export default function Board() {
@@ -28,23 +28,28 @@ export default function Board() {
     }
   };
 
+  const handleKeyup = e => {
+    console.log(e);
+  };
+
   return (
     <>
-      <div className="space-x-2 mb-1">
+      <ul className="flex space-x-2 mb-1">
         {Object.keys(filterTypes).map(key => (
-          <span
+          <li
+            role="menuitem"
             onClick={() => dispatch(filterChange({ key: filterTypes[key] }))}
+            onKeyUp={handleKeyup}
             key={key}
             className={`text-sm  ${
               currentFilter === filterTypes[key]
                 ? 'text-black font-bold'
                 : 'text-gray-400'
-            }`}
-          >
+            }`}>
             {key}
-          </span>
+          </li>
         ))}
-      </div>
+      </ul>
       <TodoList>
         {filterTodos(todos).map(todo => (
           <Todo key={todo.id} todo={todo} />

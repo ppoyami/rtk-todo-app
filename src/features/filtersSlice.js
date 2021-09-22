@@ -6,6 +6,7 @@ export const filterTypes = {
   COMPLATE: 'SHOW_COMPLATE',
 };
 
+/* eslint-disable no-param-reassign */
 const filtersSlice = createSlice({
   name: 'filters',
   initialState: {
@@ -15,7 +16,9 @@ const filtersSlice = createSlice({
   },
   reducers: {
     filterChange(state, action) {
-      Object.keys(state).forEach(key => (state[key] = false));
+      Object.keys(state).forEach(key => {
+        state[key] = false;
+      });
       state[action.payload.key] = true;
     },
   },

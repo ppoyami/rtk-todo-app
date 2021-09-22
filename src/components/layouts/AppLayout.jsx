@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import iphone from '@/img/iphone.png';
 
 export default function AppLayout({ children }) {
@@ -10,3 +11,7 @@ export default function AppLayout({ children }) {
     </div>
   );
 }
+
+AppLayout.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+};

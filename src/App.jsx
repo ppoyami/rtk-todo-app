@@ -8,15 +8,15 @@ import Create from '@/pages/Create';
 
 export default function App() {
   return (
-    <AppLayout>
-      <Router>
+    <Router>
+      <AppLayout>
         <Header />
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/board" component={Board} />
           <Route path="/create" component={Create} />
         </Switch>
-      </Router>
-    </AppLayout>
+      </AppLayout>
+    </Router>
   );
 }
